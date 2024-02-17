@@ -81,11 +81,10 @@ export default{
         guardafichaEditada(e) {
            e.preventDefault();
               const config_request = {
-              headers: {'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'
-        }
+              headers: {'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'}
     };
 
-    axios.put(this.backend_server + '/fichaestu/' + this.editficha._id, this.editficha, config_request)
+    axios.put(this.backend_server + '/fichaestu/' + this.editficha._id, this.editficha, {config_request})
         .then(res => {
             const index = this.fichaestu.findIndex(item => item._id === this.editficha._id);
             if (index !== -1) {
